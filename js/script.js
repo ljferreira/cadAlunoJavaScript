@@ -27,6 +27,7 @@ class Aluno{
 
 let   BDAlunos = [0];
 let   numeroMatricula = 0;
+let   duplicaAluno = false;
 let   tblListaAluno = "";
 let   foneAluno = "";
 let   notaFinalAluno = "";
@@ -54,14 +55,18 @@ function criaAluno(){
 	if(nomeAluno != "" && (foneAluno != "" && foneAluno.length >= 13) && dataNascAluno != "" && notaFinalAluno != ""){
 
 		let compara = (valor) => valor.nome == nomeAluno && valor.dataNasc == dataNascAluno;
-		if(BDAlunos.findIndex(compara) != -1){
+		if(BDAlunos.findIndex(compara) != -1 && !duplicaAluno){
 			document.getElementById("btnCriaAluno").blur();
 			//alert("Aluno já existe!!!"); //chamar o Modal
+			document.getElementById("btnModal").click();
+			//alert(duplicaAluno);
 			return;
+
 		}
 
 		BDAlunos[++numeroMatricula] = new Aluno(numeroMatricula, nomeAluno, foneAluno, dataNascAluno, notaFinalAluno);
 		geraTabela();
+		duplicaAluno = false;
 	}
 
 	//document.getElementById("btnCriaAluno").disabled = false;
@@ -112,12 +117,14 @@ function atualizaTabela(valor, indice){
 							"onmousedown=\"this.src=\'./img/editar_click.svg\'\"" 	+ 
 							"onmouseup=\"this.src=\'./img/editar_hover.svg\'\""   	+ 
 							"onmouseover=\"this.src=\'./img/editar_hover.svg\'\"" 	+ 
-							"onmouseout=\"this.src=\'./img/editar.svg\'\"></td>"  	+
+							"onmouseout=\"this.src=\'./img/editar.svg\'\""          + 
+							"onclick='alert(\"Edição ainda não implementada!!!\");'></td>" +
 							"<td><div><img title='Excluir' src=\"./img/deletar.svg\"" + 
 							"onmousedown=\"this.src=\'./img/deletar_click.svg\'\"" 	+ 
 							"onmouseup=\"this.src=\'./img/deletar_hover.svg\'\""   	+ 
 							"onmouseover=\"this.src=\'./img/deletar_hover.svg\'\"" 	+ 
-							"onmouseout=\"this.src=\'./img/deletar.svg\'\"></div></td>" +
+							"onmouseout=\"this.src=\'./img/deletar.svg\'\"" + 
+							"onclick='alert(\"Exclusão ainda não implementada!!!\");'></div></td>" +
 						"</tr>";
 	}
 

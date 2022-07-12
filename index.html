@@ -58,7 +58,7 @@
 					</div>
 				</div>
 			</form>
-			<div class="row" id="tabelaAluno"></div>
+			<div class="row table-responsive" id="tabelaAluno"></div>
 			<!--<table class="table table-striped my-3">
 				<thead>
 					<tr>
@@ -96,5 +96,34 @@
 				</tbody>
 			</table>-->
 		</div>
+		<button id="btnModal" type="button" hidden data-bs-toggle="modal" data-bs-target="#myModal"></button>
+
+		<!-- The Modal -->
+		<div class="modal" id="myModal">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+
+		      <!-- Modal Header -->
+		      <div class="modal-header text-white bg-danger">
+		        <h4 class="modal-title text-white"><strong>ATENÇÃO</strong></h4>
+		        <!--<button type="button" class="btn-close" data-bs-dismiss="modal"></button>-->
+		      </div>
+
+		      <!-- Modal body -->
+		      <div class="modal-body" style="text-indent: 3%">
+		        <p>Já existe(m) aluno(s) cadastrado(s), com o mesmo nome e data de nascimento sendo informado.</p>
+		        <p>Deseja cadastrar outro, mesmo assim?</p>
+		      </div>
+
+		      <!-- Modal footer -->
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-primary" onclick="duplicaAluno = true; criaAluno()" data-bs-dismiss="modal">Sim</button>
+		        <button type="button" class="btn btn-danger"  onclick="duplicaAluno = false" data-bs-dismiss="modal">Não</button>
+		      </div>
+
+		    </div>
+		  </div>
+		</div>
+
 	</body>
 </html>

@@ -279,3 +279,16 @@ function capTecla(elem){
 	//console.log(event.key);
 }
 
+function testaEvento(e){
+	alert(event.type);
+	console.log(e);
+}
+
+/*window.onload = function () {alert("Página Carregada!!");
+var ele = document.getElementById("myModal");
+console.log(ele);
+ele.onclick = function (){alert("Você clicou no Modal!!");}
+
+}*/
+
+
